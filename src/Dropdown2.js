@@ -30,17 +30,17 @@ const Dropdown2 = props => {
             <br />
             <br />
             <div className='row'>
-            <img className='column buy' src={itunes} alt='...' />
-            <img className='column buy' src={bandcamp} alt='...' />
-            <img className='column buy' src={spotify} alt='...' />
+            <img className='column buy img-responsive' src={itunes} alt='...' />
+            <img className='column buy img-responsive' src={bandcamp} alt='...' />
+            <img className='column buy img-responsive' src={spotify} alt='...' />
             </div>
             
             <div>
                 
-            <button class='albumContainer invisible' value={props.selectedValue} onClick={assignId}>
+            <button className='row invisible' value={props.selectedValue} onClick={assignId}>
                 {console.log(props.options[0])}
                 {props.options.map((item, idx) => <img
-                className='albumCover visible' 
+                className='img-responsive column visible' 
                 src={item.images[0].url} 
                 key={idx + 1} 
                 value={item.id} 
@@ -52,8 +52,6 @@ const Dropdown2 = props => {
             </button> 
             </div>
             <br />
-            
-            
             <div className='albumHeader'>
                 <h3 >{name.name}</h3>
             </div>
