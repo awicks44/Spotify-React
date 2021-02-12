@@ -33,14 +33,3 @@ img {
 img.track {
   border: 1px solid #8a8a8a;
 }
-
-h3 {
-  margin: 0;
-    background: red;
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    top: '220px';
-}
-

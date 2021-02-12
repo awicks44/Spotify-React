@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import UserProfile from '../user profile/UserProfile';
+// import UserProfile from '../user profile/UserProfile';
 import { useAppContext } from '../utils/Context';
 import { QUASAR_API } from '../Constants';
 import './NavBar.css';
@@ -105,19 +105,20 @@ const NavBar = () => {
   }
 
   return (
-    <div className="stickywrapper">
+    <div>
       {showUserProfile && (
-        <UserProfile
-          user={userObject}
-          setUser={setUserObject}
-          toggleCallback={setShowUserProfile}
-        />
+        // <UserProfile
+        //   user={userObject}
+        //   setUser={setUserObject}
+        //   toggleCallback={setShowUserProfile}
+        // />
+        <div />
       )}
       <div className="nottransparent">
         <div className="navbartop">
           <div className="logocontainer">
             <div className="logo">
-              <Link to="/"><img src="/sportsapp.png" alt="logo" /></Link>
+              <a href="/"><img src={cart} alt="logo" /></a>
             </div>
           </div>
           <div className="cartbadge">
@@ -135,38 +136,40 @@ const NavBar = () => {
                     </span>
                   </button>
                   <Button id="logout" text="Logout" className="button" onClick={logOut} />
-                  <div>
-                    <Link to="/cart"><img className="cart-image-in" src={cart} alt="..." /></Link>
-                  </div>
                 </div>
               )
               : (
                 <div>
                   <div className="useremail" />
                   <Button id="login" text="Login" className="button" onClick={() => history.push('/login')} />
-                  <button className="cart-button" type="button" onClick={() => history.push('/login')}><img className="cart-image-out" src={cart} alt="..." /></button>
                 </div>
               )}
           </div>
         </div>
         <nav className="navbar navbar-expand-lg menu">
-          {error ? <div className="navError">Nav links could not be rendered</div> : (
+          {/* {error ? <div className="navError">Nav links could not be rendered</div> : ( */}
             <ul className="nav navbarnav" data-testid="dropdown">
-              {Array.isArray(demographics) && demographics.map((demographic) => (
+              {/* {Array.isArray(demographics) && demographics.map((demographic) => (
                 <li className="nav-item" data-testid={`${demographic.toLowerCase()}`}>
-                  <Link to={`/products/${demographic.toLowerCase()}`} className="navlink">{demographic}</Link>
+                  <a href={`/products/${demographic.toLowerCase()}`} className="navlink">{demographic}</a>
                   <ul data-testid="categories">
                     {categories.map((category) => (
                       <li>
-                        <Link to={`/products/${demographic.toLowerCase()}/${category.toLowerCase()}`}>{category}</Link>
+                        <a href={`/products/${demographic.toLowerCase()}/${category.toLowerCase()}`}>{category}</a>
                         <ul>
-                          {types.map((type) => <li><Link to={`/products/${demographic.toLowerCase()}/${category.toLowerCase()}/${type.toLowerCase()}`}>{type}</Link></li>)}
+                          {types.map((type) => <li><a href={`/products/${demographic.toLowerCase()}/${category.toLowerCase()}/${type.toLowerCase()}`}>{type}</a></li>)}
                         </ul>
                       </li>
                     ))}
                   </ul>
                 </li>
-              ))}
+              ))} */}
+              <li>
+                <a href='/'>HI</a>
+                <ul>
+                  <li>hi</li>
+                </ul>
+              </li>  
             </ul>
           )}
         </nav>

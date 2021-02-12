@@ -2,3 +2,32 @@
     background-color: #555555;
     padding: 15px 32px;
 }
+
+.invisible {
+    visibility: hidden;
+  }
+
+.visible {
+    visibility: visible;
+  }
+
+.albumHeader {
+    background: red;
+    position: relative;
+    left: 50%;
+    margin-top: -.5%;
+    transform: translate(-50%, -50%);
+    /* max-height: '500px'; */
+    top: '100px';
+    text-align: center;
+}
+
+.buy {
+    width: 10%;
+    height: 10%;
+    margin-bottom: 2.5%;;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+  }

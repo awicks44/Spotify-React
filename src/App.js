@@ -7,6 +7,8 @@ import axios from 'axios';
 import SpotifyPlayer from 'react-spotify-player';
 import Dropdown2 from './Dropdown2';
 import NavBar from './navbar/NavBar';
+import styles from './App.css';
+import itunes from './itunes.jpg';
 
 const App = () => {
 
@@ -150,25 +152,25 @@ const theme = 'black'; // or 'white'
   
 
   return (
-    <div className="container">
+    <div className='outerScroll'>
+      <div className='innerScroll'>
+    <div className='container-fluid'>
+      <div>
       <NavBar />
-      {/* <form onSubmit={buttonClicked}>         */}
-      <h3>{album.selectedAlbum.name}</h3>
+      </div>
           <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} />
-          <h3>{album.selectedAlbum.name}</h3>
-          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} changed={albumChanged} />
-          <div>
           
-          </div>  
-         
-          <h3>{album.selectedAlbum.name}</h3>
+          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} changed={albumChanged} />
+          <div className='spotifyPlayer'>
           <SpotifyPlayer
               uri={`spotify:album:${album.selectedAlbum}` || `spotify:album:${album[0]}`}
               size={size}
               view={view}
               theme={theme}
-            />   
-      {/* </form> */}
+            />
+          </div>
+    </div>
+    </div>
     </div>
     
     

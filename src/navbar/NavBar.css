@@ -1,7 +1,7 @@
 .menu {
-  background-color: #BC4639;
+  background-color: #35363f;
   height: 47px;
-  box-shadow: 0 13px 6px -6px #5C2018;
+  box-shadow: 0 13px 6px -6px #1c1c22;
 }
 
 .menu .navbarnav {
@@ -13,12 +13,12 @@
   justify-content: space-between;
 }
 
-.stickywrapper {
+/* .stickywrapper {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
-}
+} */
 
 .categorynav li:hover,
 .categorynav li:focus-within {
@@ -27,7 +27,7 @@
 }
 
 .nottransparent {
-  background-color: #F3E0DC;
+  background-color: #a8a8a8;
 }
 
 .categorynav {
@@ -154,6 +154,7 @@
 
 .logo {
   text-align: center;
+  width: 100%;
 }
 
 .useremail {
@@ -180,14 +181,14 @@
 }
 
 .button {
-  background-color: #5C2018 !important;
+  background-color: #3b3b3b !important;
   color: white !important;
   font-size: 18px !important;
   border: solid !important;
-  border-color: #5C2018 !important;
+  border-color: #000000 !important;
   border-radius: 5px !important;
   display: block !important;
-  margin-left: 55px !important;
+  margin-left: 1100px !important;
   left: 10vw !important;
 }
 
