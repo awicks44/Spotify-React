@@ -150,7 +150,7 @@ const NavBar = () => {
         <div className="navbartop">
           <div className="logocontainer">
             <div className="logo">
-              <a href="/"><img src={cart} alt="logo" /></a>
+              {/* <a href="/"><img src={''} alt="logo" /></a> */}
             </div>
           </div>
           <div className="cartbadge">
@@ -203,7 +203,6 @@ const NavBar = () => {
                 </ul>
               </li>  
             </ul>
-          )}
         </nav>
       </div>
     </div>

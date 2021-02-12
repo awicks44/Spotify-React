@@ -72,5 +72,6 @@
   padding-left: 17px;
   position: absolute;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
