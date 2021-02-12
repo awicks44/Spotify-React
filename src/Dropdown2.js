@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styles } from './Dropdown2.css';
 import itunes from './itunes.jpg';
 import spotify from './spotify.png';
+import bandcamp from './bandcamp.png';
 
 const Dropdown2 = props => {    
     const [name, setName] = useState(''); 
@@ -16,6 +17,11 @@ const Dropdown2 = props => {
         console.log(v);
     }
 
+
+    // if width <= 500 {
+
+    // }
+
     return (
         <div className='container-fluid'>
             
@@ -24,16 +30,17 @@ const Dropdown2 = props => {
             <br />
             <br />
             <div className='row'>
-            <img className='column .col- buy' src={itunes} alt='...' />
+            <img className='column buy' src={itunes} alt='...' />
+            <img className='column buy' src={bandcamp} alt='...' />
             <img className='column buy' src={spotify} alt='...' />
             </div>
             
-            <div style={{}}>
+            <div>
                 
-            <button class='invisible' value={props.selectedValue} onClick={assignId}>
+            <button class='albumContainer invisible' value={props.selectedValue} onClick={assignId}>
                 {console.log(props.options[0])}
                 {props.options.map((item, idx) => <img
-                className='visible' 
+                className='albumCover visible' 
                 src={item.images[0].url} 
                 key={idx + 1} 
                 value={item.id} 

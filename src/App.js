@@ -14,7 +14,7 @@ const App = () => {
 
   const spotify = Credentials();  
 
-  console.log('RENDERING APP.JS');
+  console.log('');
 
   // const data = [
   //   {value: 1, name: 'A'},

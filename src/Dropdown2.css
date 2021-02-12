@@ -23,11 +23,22 @@
 }
 
 .buy {
-    width: 10%;
+    /* width: 100px; */
+    /* max-width: 100%; */
+    /* width: 10%; */
     height: 10%;
     margin-bottom: 2.5%;;
     display: block;
     margin-left: auto;
     margin-right: auto;
     /* width: 50%; */
+  }
+
+  .albumCover {
+    /* width: 25%; */
+    height: auto;
+  }
+
+  .albumContainer {
+    height: auto;
   }
