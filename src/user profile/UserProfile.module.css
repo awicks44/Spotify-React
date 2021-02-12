@@ -1,0 +1,59 @@
+.user-profile {
+  min-height: 100vh;
+  min-width: 450px;
+  background-color: #F3E0DC;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+  width: 450px;
+  color: #BC4639;
+  border-left: 4px solid #4285F4;
+}
+
+.panel-slide-in {
+  animation: slide-in 1s backwards ease-in;
+}
+
+.panel-slide-out {
+  animation: slide-out 1s backwards ease-out;
+}
+
+@keyframes slide-in {
+  from {right: 0;}
+  to {right: -50vw;}
+}
+
+@keyframes slide-out {
+  from {right: -50vw;}
+  to {right: 0;}
+}
+
+.user-full-name {
+ color: #5C2018;
+}
+
+.user-address b {
+  color: #4285F4;
+}
+
+.user-address {
+  position: relative;
+  width: 100%;
+}
+
+.close-profile-button {
+  position: absolute;
+  background-color: none;
+  color: black;
+  font-size: larger;
+}
+
+.close-profile-button:hover {
+  color: #4285F4;
+  font-size: 130%;
+}
+
+.feedback-container {
+  min-height: 140px;
+  text-align: center;
+}
