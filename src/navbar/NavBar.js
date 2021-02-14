@@ -7,6 +7,7 @@ import './NavBar.css';
 import Button from '../button/Button';
 import cart from './cart.png';
 import axios from 'axios';
+import { Credentials } from '../Credentials';
 
 // wrapper for the navigation bar, the comments contained in the first section are
 // relevent throughout the component
@@ -23,36 +24,39 @@ const NavBar = () => {
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [error, setError] = useState(false);
   const [token, setToken] = useState('');  
+  const spotify = Credentials();  
   const [artists, setArtists] = useState({selectedArtist: '', listOfArtistsFromAPI: []});
+  const myArtists = '2aoFQUeHD1U7pL098lRsDU,2pAWfrd7WFF3XhVt9GooDL,77AKJs9SJqxHXbPgtJPKRa';
+  const Dante = {url: 'dante_patel', value: '2aoFQUeHD1U7pL098lRsDU', name: 'Dante Patel'};
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   axios('https://accounts.spotify.com/api/token', {
-  //     headers: {
-  //       'Content-Type' : 'application/x-www-form-urlencoded',
-  //       'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)      
-  //     },
-  //     data: 'grant_type=client_credentials',
-  //     method: 'POST'
-  //   })
-  //   .then(tokenResponse => {      
-  //     setToken(tokenResponse.data.access_token);
-  //       axios(`https://api.spotify.com/v1/artists?ids=${myArtists}`, {
-  //       method: 'GET',
-  //       headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
-  //     })
-  //     .then (artistResponse => {        
-  //       console.log(artistResponse);
-  //       setArtists({
-  //         selectedArtist: artists.selectedArtist,
-  //         // listOfArtistsFromAPI: artistResponse.data.categories.items
-  //         listOfArtistsFromAPI: artistResponse.data.artists
-  //       })
-  //     });
+    axios('https://accounts.spotify.com/api/token', {
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)      
+      },
+      data: 'grant_type=client_credentials',
+      method: 'POST'
+    })
+    .then(tokenResponse => {      
+      setToken(tokenResponse.data.access_token);
+        axios(`https://api.spotify.com/v1/artists?ids=${myArtists}`, {
+        method: 'GET',
+        headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
+      })
+      .then (artistResponse => {        
+        console.log(artistResponse);
+        setArtists({
+          selectedArtist: artists.selectedArtist,
+          // listOfArtistsFromAPI: artistResponse.data.categories.items
+          listOfArtistsFromAPI: artistResponse.data.artists
+        })
+      });
       
-  //   });
+    });
 
-  // }, [artists.selectedArtist]); 
+  }, [artists.selectedArtist, spotify.ClientId, spotify.ClientSecret]); 
 
   /**
    * Fetches the user's data if logged in and it is needed
@@ -137,26 +141,26 @@ const NavBar = () => {
   }
 
   return (
-    <div>
-      {showUserProfile && (
-        // <UserProfile
-        //   user={userObject}
-        //   setUser={setUserObject}
-        //   toggleCallback={setShowUserProfile}
-        // />
-        <div />
-      )}
-      <div className="nottransparent">
-        <div className="navbartop">
+    // <div>
+    //   {showUserProfile && (
+    //     // <UserProfile
+    //     //   user={userObject}
+    //     //   setUser={setUserObject}
+    //     //   toggleCallback={setShowUserProfile}
+    //     // />
+    //     <div />
+    //   )}
+      <div>
+        <div>
           <div className="logocontainer">
-            <div className="logo">
-              {/* <a href="/"><img src={''} alt="logo" /></a> */}
-            </div>
+            {/* <div className="logo">
+              <a href="/"><img src={cart} alt="logo" /></a>
+            </div> */}
           </div>
           <div className="cartbadge">
             <text className="unselectable">{count}</text>
           </div>
-          <div className="login">
+          {/* <div className="login">
             {isLoggedIn
               ? (
                 <div>
@@ -176,9 +180,9 @@ const NavBar = () => {
                   <Button id="login" text="Login" className="button" onClick={() => history.push('/login')} />
                 </div>
               )}
-          </div>
+          </div> */}
         </div>
-        <nav className="navbar navbar-expand-lg menu">
+        <nav className="navbar-expand-lg menu">
           {/* {error ? <div className="navError">Nav links could not be rendered</div> : ( */}
             <ul className="nav navbarnav" data-testid="dropdown">
               {/* {Array.isArray(demographics) && demographics.map((demographic) => (
@@ -197,15 +201,15 @@ const NavBar = () => {
                 </li>
               ))} */}
               <li>
-                <a href='/'>HI</a>
+                <a>Artists</a>
                 <ul>
-                  <li>hi</li>
+                  <li><a href={`/artists/${Dante.url}`}>Dante Patel</a></li>
                 </ul>
               </li>  
             </ul>
         </nav>
-      </div>
-    </div>
+      {/* </div> */}
+     </div>
   );
 };
 

@@ -8,16 +8,27 @@ const Dropdown2 = props => {
     const [name, setName] = useState(''); 
     
     const assignId = e => {
-        props.changed(e.target.id);
-        // props.changed(e.target.name);
         setName({
             name: e.target.getAttribute("name")
         });
+        props.changed(e.target.id);
+        // props.changed(e.target.name);
+        
         const v = e.target.getAttribute("name");
         console.log(v);
     }
 
-
+    let albumTitle;
+    if (name === '') {
+        console.log(props.firstName);
+        console.log(name);
+        albumTitle = props.firstName;
+    }
+    else {
+        console.log(props.firstName);
+        console.log(name);
+        albumTitle = name.name;
+    }
     // if width <= 500 {
 
     // }
@@ -25,8 +36,7 @@ const Dropdown2 = props => {
     return (
         <div className='container-fluid'>
             
-            <br />
-            <br />
+            
             <br />
             <br />
             <div className='row'>
@@ -53,7 +63,7 @@ const Dropdown2 = props => {
             </div>
             <br />
             <div className='albumHeader'>
-                <h3 >{name.name}</h3>
+                <h3 >{albumTitle}</h3>
             </div>
         </div>
     );

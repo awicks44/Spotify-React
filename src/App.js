@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+// import Footer from './components/footer/Footer';
+import { AppContext } from './utils/Context';
+// import HomePage from './components/home/Homepage';
+import Login from './onepirate/SignIn';
 import Dropdown from './Dropdown';
 import Listbox from './Listbox';
 import Detail from './Detail';
@@ -9,12 +14,16 @@ import Dropdown2 from './Dropdown2';
 import NavBar from './navbar/NavBar';
 import styles from './App.css';
 import itunes from './itunes.jpg';
+import ReactPlayer from 'react-player';
+import SignUp from './onepirate/SignUp';
+import Home from './onepirate/Home';
+import Dante from './dante/Dante';
 
 const App = () => {
 
   const spotify = Credentials();  
 
-  console.log('');
+  console.log('RENDERING APP.JS');
 
   // const data = [
   //   {value: 1, name: 'A'},
@@ -151,29 +160,81 @@ const theme = 'black'; // or 'white'
 // }
   
 
-  return (
-    <div className='outerScroll'>
-      <div className='innerScroll'>
-    <div className='container-fluid'>
-      <div>
-      <NavBar />
-      </div>
-          <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} />
+  // return (
+  //   <div className='outerScroll'>
+  //     <div className='innerScroll'>
+  //   <div className='container-fluid'>
+  //     <div className='navBar'>
+  //     {/* <NavBar /> */}
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+  //     <br/>
+      
+  //     </div>
+      
+  //     <div className='img-responsive'>
+  //     <dl class="row">
+  //     <dt class="col-sm-6"><ReactPlayer height='100px' width='100%' url="https://soundcloud.com/glennmorrison/beethoven-moonlight-sonata"/></dt>
+  //     <dd class="col-sm-6"><ReactPlayer height='100px' width='100%' url="https://soundcloud.com/glennmorrison/beethoven-moonlight-sonata"/></dd>
+  //     <dt class="col-sm-6"><ReactPlayer height='100px' width='100%' url="https://soundcloud.com/glennmorrison/beethoven-moonlight-sonata"/></dt>
+  //     <dd class="col-sm-6"><ReactPlayer height='100px' width='100%' url="https://soundcloud.com/glennmorrison/beethoven-moonlight-sonata"/></dd>
+  //     </dl>
+
+  //     </div>
+      
+  //         <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} />
           
-          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} changed={albumChanged} />
-          <div className='spotifyPlayer'>
-          <SpotifyPlayer
-              uri={`spotify:album:${album.selectedAlbum}` || `spotify:album:${album[0]}`}
-              size={size}
-              view={view}
-              theme={theme}
-            />
-          </div>
-    </div>
-    </div>
-    </div>
+  //         <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} changed={albumChanged} />
+  //         <div className='spotifyPlayer'>
+  //         <SpotifyPlayer
+  //             uri={`spotify:album:${album.selectedAlbum}` || `spotify:album:${album[0]}`}
+  //             size={size}
+  //             view={view}
+  //             theme={theme}
+  //           />
+  //         </div>
+  //   </div>
+  //   {/* <SignUp /> */}
+  //   <Home />
+  //   </div>
+  //   </div>
     
     
+  // );
+  return (
+    <>
+      <div className={styles.app}>
+        <AppContext.Provider value={{
+          // isLoggedIn, setIsLoggedIn, userEmail, setUserEmail, userObject, setUserObject, crt, setCrt
+        }}
+        >
+          <BrowserRouter>
+            {/* <NavBar setLoggedState={setLoggedState} loggedOut={loggedOut} /> */}
+            <div className={styles.container}>
+              <Switch>
+                <Route exact path="/login" render={() => <Login />} />
+                {/* <Route exact path="/signup" render={() => <CustomerPage />} /> */}
+                <Route exact path="/" component={Home} />
+                <Route exact path="/artists/dante_patel" component={Dante} />
+                {/* <Route exact path="/products/:demographic/:category/:type" render={() => <ProductMap />} />
+                <Route exact path="/products/:demographic/:category" render={() => <ProductMap />} />
+                <Route exact path="/products/:demographic" render={() => <ProductMap />} />
+                {isLoggedIn && <Route exact path="/wishlist" component={WishList} />}
+                <Route exact path="/cart" component={ShoppingCart} />
+                <Route render={() => <ErrorPage errorCode={404} />} /> */}
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </AppContext.Provider>
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }
 

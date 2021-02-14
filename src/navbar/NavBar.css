@@ -101,7 +101,7 @@
   opacity: 0;
   padding: 0;
   min-width: 160px;
-  background-color: #D4A59A;
+  background-color: #6d6d6d;
   position: absolute;
   top: calc(var(--menu-height) + 5px);
   left: 50%;
@@ -129,7 +129,7 @@
 }
 
 .menu>ul li ul li:hover {
-  background-color: #BC4639;
+  background-color: #ff1900;
 }
 
 .menu>ul li:hover>ul {
@@ -149,7 +149,7 @@
 .navbartop {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 100px;
 }
 
 .logo {
@@ -256,3 +256,9 @@
 .unselectable {
   user-select: none;
 }
+/* 
+.header {
+  width: 2000px;
+  background-color: #4daf64!important;
+  margin-right: 1000px;
+} */
