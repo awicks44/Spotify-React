@@ -3,6 +3,20 @@
 }
 
 .player {
-  width: 75%;
-  margin: auto;
+  width: 50%;
+  top: 100px;
+  /* margin: auto; */
+  float: left;
+  padding: 25px;
+}
+
+.images {
+  /* width: 100%; */
+  float: right;
+}
+
+@media (max-width: 1024px) {
+  .loginFeature {
+    display: none;
+  }
 }

@@ -3,8 +3,15 @@ import { styles } from './Dropdown2.css';
 import itunes from './itunes.jpg';
 import spotify from './spotify.png';
 import bandcamp from './bandcamp.png';
+import SpotifyPlayer from 'react-spotify-player';
 
 const Dropdown2 = props => {    
+    const size = {
+        width: '100%',
+        height: 300,
+      };
+      const view = 'list'; // or 'coverart'
+      const theme = 'black'; // or 'white'
     const [name, setName] = useState(''); 
     
     const assignId = e => {
@@ -20,13 +27,9 @@ const Dropdown2 = props => {
 
     let albumTitle;
     if (name === '') {
-        console.log(props.firstName);
-        console.log(name);
         albumTitle = props.firstName;
     }
     else {
-        console.log(props.firstName);
-        console.log(name);
         albumTitle = name.name;
     }
     // if width <= 500 {
@@ -34,23 +37,27 @@ const Dropdown2 = props => {
     // }
 
     return (
-        <div className='container-fluid'>
+        <div>
             
+            <div className='albumHeader w-50'>
+                <h3 >{albumTitle}</h3>
+            </div>
+            <div className='row' align='right'>
+            <br/>
+            {/* <br/> */}
             
-            <br />
-            <br />
-            <div className='row'>
             <img className='column buy img-responsive' src={itunes} alt='...' />
             <img className='column buy img-responsive' src={bandcamp} alt='...' />
             <img className='column buy img-responsive' src={spotify} alt='...' />
             </div>
             
-            <div>
-                
+            <div align='left'>
+            <br />
+            <br />
+            <br />
             <button className='row invisible' value={props.selectedValue} onClick={assignId}>
-                {console.log(props.options[0])}
                 {props.options.map((item, idx) => <img
-                className='img-responsive column visible' 
+                className='visible albums' 
                 src={item.images[0].url} 
                 key={idx + 1} 
                 value={item.id} 
@@ -60,10 +67,6 @@ const Dropdown2 = props => {
                 alt='...'
                 />)}
             </button> 
-            </div>
-            <br />
-            <div className='albumHeader'>
-                <h3 >{albumTitle}</h3>
             </div>
         </div>
     );

@@ -4,14 +4,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
-import puppy from './puppy.jpg';
+import bg from './1977.png';
 
 const backgroundImage =
   'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80';
 
 const styles = (theme) => ({
   background: {
-    backgroundImage: `url(${puppy})`,
+    backgroundImage: `url(${bg})`,
     backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
   },
@@ -28,17 +28,18 @@ const styles = (theme) => ({
   more: {
     marginTop: theme.spacing(2),
   },
+  hidden: 'hidden'
 });
 
 function ProductHero(props) {
   const { classes } = props;
-
+  const artist = props.artist;
   return (
-    <ProductHeroLayout backgroundClassName={classes.background}>
+    <ProductHeroLayout backgroundClassName={classes.background} visibility='hidden'>
       {/* Increase the network loading priority of the background image. */}
       {/* <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" /> */}
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
+        {classes.backgroundImage}
       </Typography>
       {/* <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
         Enjoy secret offers up to -70% off the best luxury hotels every Sunday.

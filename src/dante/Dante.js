@@ -14,20 +14,54 @@ import axios from 'axios';
 import SpotifyPlayer from 'react-spotify-player';
 import Dropdown2 from '../Dropdown2';
 import NavBar from '../navbar/NavBar';
-
 import itunes from '../itunes.jpg';
 import ReactPlayer from 'react-player';
 import SignUp from '../onepirate/SignUp';
 import Home from '../onepirate/Home';
-import ProductHero from '../onepirate/modules/views/ProductHero';
+import ProductHeroLayout from '../onepirate/modules/views/ProductHeroLayout';
 import AppAppBar from '../onepirate/modules/views/AppAppBar';
 import SoundCloud from 'react-custom-soundcloud';
 import 'react-custom-soundcloud/dist/style.css';
+import withRoot from '../onepirate/modules/withRoot';
+import Typography from '../onepirate/modules/components/Typography';
+import bg from '../onepirate/modules/views/1977.png';
+import ProductHero from '../onepirate/modules/views/ProductHero';
+import clsx from 'clsx';
  
 const Dante = () => {
   const spotify = Credentials();  
-  const Dante = {url: 'dante_patel', value: '2aoFQUeHD1U7pL098lRsDU', name: 'Dante Patel'};
+  const Dante = {url: 'dante_patel', value: '2pAWfrd7WFF3XhVt9GooDL', name: 'Dante Patel'};
   console.log('RENDERING APP.JS');
+  const styles = (theme) => ({
+    background: {
+      backgroundImage: `url(${bg})`,
+      backgroundColor: '#7fc7d9', // Average color of the background image.
+      backgroundPosition: 'center',
+    },
+    background2: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      zIndex: -2,
+    },
+    bg: {
+      height: 1000
+    },
+    backdrop: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      backgroundColor: theme.palette.common.black,
+      opacity: 0.5,
+      zIndex: -1,
+    },
+  });
 
   // const data = [
   //   {value: 1, name: 'A'},
@@ -188,24 +222,48 @@ const theme = 'black'; // or 'white'
       <br/>
       <br/>
       <br/>
-      <ProductHero />
+      {/* <ProductHeroLayout visibility='visible' backgroundClassName={styles.background}>
+      <Typography color="inherit" align="center" variant="h2" marked="center">
+        {styles.backgroundImage}
+      </Typography>
+      </ProductHeroLayout> */}
       
+      
+      
+</div>
+<div className='flexbox'>
+      <img class='bg'  src={bg} alt='...'/>
+      <span className='description'> Here is a really asdfoih;n aisunfo iasodij oaijd aosidj asdoij dasoij asodija sojda OSJdnfl ;;OF N;WORQ3 N;OERWN ;OWER Nsick description.</span>
       
       </div>
+      <br/>
       
       
-      
-          {/* <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} /> */}
-          
-          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} firstName={album.firstName} changed={albumChanged} />
-          <div className={styles.player}>
-          <SpotifyPlayer 
+      <div className='player w-50' align='left'>
+          <SpotifyPlayer
               uri={mediaAlbum}
               size={size}
               view={view}
               theme={theme}
             />
           </div>
+      
+      
+      
+      
+          {/* <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} /> */}
+          <div align='right'>
+          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} firstName={album.firstName} changed={albumChanged} />
+          </div>
+          {/* <div className='w-50'>
+          <SpotifyPlayer 
+              uri={mediaAlbum}
+              size={size}
+              view={view}
+              theme={theme}
+            />
+          </div> */}
+          
     </div>
     <br/>
     <br/>
@@ -216,9 +274,9 @@ const theme = 'black'; // or 'white'
 
     {/* <SignUp /> */}
     {/* <Home /> */}
-    <div className={styles.player}>
+    <div>
     <SoundCloud
-    playlist="774341907"
+    playlist="222968340"
     mini={false}
     theme={'dark'}
   /></div>
@@ -231,4 +289,4 @@ const theme = 'black'; // or 'white'
      );
 };
 
-export default Dante;
+export default withRoot(Dante);

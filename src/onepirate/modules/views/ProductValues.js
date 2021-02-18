@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
+import buyalbum from './buyalbum.jpg';
+import spotifyplayer from './spotifyplayer.PNG';
 
 const styles = (theme) => ({
   root: {
@@ -24,7 +26,8 @@ const styles = (theme) => ({
     padding: theme.spacing(0, 5),
   },
   image: {
-    height: 55,
+    height: 350,
+    width: 369
   },
   title: {
     marginTop: theme.spacing(5),
@@ -43,25 +46,24 @@ function ProductValues(props) {
   return (
     <section className={classes.root}>
       <Container className={classes.container}>
-        <img
-          src="/static/themes/onepirate/productCurvyLines.png"
+        {/* <img
+          src={spotifyplayer}
           className={classes.curvyLines}
           alt="curvy lines"
-        />
+        /> */}
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="/static/themes/onepirate/productValues1.svg"
+                src={buyalbum}
                 alt="suitcase"
               />
               <Typography variant="h6" className={classes.title}>
-                The best luxury hotels
+                Buy an Album!
               </Typography>
               <Typography variant="h5">
-                {'From the latest trendy boutique hotel to the iconic palace with XXL pool'}
-                {', go for a mini-vacation just a few subway stops away from your home.'}
+                {'Buy albums from your favorite underground Maryland artists from their artist page! You can buy the albums on either BandCamp or iTunes.'}
               </Typography>
             </div>
           </Grid>
@@ -69,15 +71,14 @@ function ProductValues(props) {
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="/static/themes/onepirate/productValues2.svg"
+                src={spotifyplayer}
                 alt="graph"
               />
               <Typography variant="h6" className={classes.title}>
-                New experiences
+                Preview Music!
               </Typography>
               <Typography variant="h5">
-                {'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '}
-                {'your Sundays will not be alike.'}
+                {'The artist page also lets you preview a number of their music! Listen to 1 minute samples from ANY song on ANY album via our Spotify media player! Just click an album and the media player will show up for you. ALSO, scroll even further down to listen to their latest songs off SoundCloud!'}
               </Typography>
             </div>
           </Grid>

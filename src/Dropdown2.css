@@ -14,24 +14,24 @@
 .albumHeader {
     background: red;
     position: relative;
-    left: 50%;
+    /* left: 50%; */
     margin-top: -.5%;
-    transform: translate(-50%, -50%);
-    /* max-height: '500px'; */
+    /* transform: translate(-50%, -50%); */
     top: '100px';
     text-align: center;
+    word-wrap: break-word;
 }
 
 .buy {
     /* width: 100px; */
-    /* max-width: 100%; */
+    min-width: 150px;
     /* width: 10%; */
     height: 10%;
     margin-bottom: 2.5%;;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /* width: 50%; */
+    width: 40%;
   }
 
   .albumCover {
@@ -41,4 +41,49 @@
 
   .albumContainer {
     height: auto;
+    float: right;
+    display: block;
+  /* margin-left: auto; */
+  margin-right: auto;
+  
+  
+  }
+
+  .albums {
+    /* bottom: '500px'; */
+    /* float: center; */
+    display: block;
+    float: left;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  .player {
+    /* width: 25%; */
+    /* margin: auto; */
+    float: left;
+  }
+
+  .description {
+    float: right;
+    position: relative;
+      text-align: center;
+      word-wrap: break-word;
+      border: 3px solid green;
+      vertical-align: middle;
+      color: white;
+  }
+
+  .bg {
+    /* background-position: 0 0;  */
+    /* float: left; */
+    width: 50%;
+    height: 50%;
+    position: relative;
+    /* vertical-align:middle */
+  }
+
+  .flexbox {
+    display: flex;
+    align-items: center;
   }
