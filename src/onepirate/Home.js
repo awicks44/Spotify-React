@@ -28,8 +28,8 @@ function Index() {
       </div>
       <ProductValues />
       <ProductCategories />
-      <ProductHowItWorks />
-      <ProductCTA />
+      {/* <ProductHowItWorks /> */}
+      {/* <ProductCTA /> */}
       <ProductSmokingHero />
       <AppFooter />
     </React.Fragment>

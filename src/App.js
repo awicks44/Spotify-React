@@ -18,6 +18,7 @@ import ReactPlayer from 'react-player';
 import SignUp from './onepirate/SignUp';
 import Home from './onepirate/Home';
 import Dante from './dante/Dante';
+import Contact from './contact/Contact';
 
 const App = () => {
 
@@ -212,6 +213,7 @@ const theme = 'black'; // or 'white'
       <div className={styles.app}>
         <AppContext.Provider value={{
           // isLoggedIn, setIsLoggedIn, userEmail, setUserEmail, userObject, setUserObject, crt, setCrt
+          name, setName
         }}
         >
           <BrowserRouter>
@@ -219,7 +221,8 @@ const theme = 'black'; // or 'white'
             <div className={styles.container}>
               <Switch>
                 <Route exact path="/login" render={() => <Login />} />
-                {/* <Route exact path="/signup" render={() => <CustomerPage />} /> */}
+                <Route exact path="/signup" render={() => <SignUp />} />
+                <Route exact path="/contact" render={() => <Contact />} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/artists/dante_patel" component={Dante} />
                 {/* <Route exact path="/products/:demographic/:category/:type" render={() => <ProductMap />} />

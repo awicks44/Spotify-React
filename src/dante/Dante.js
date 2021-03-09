@@ -15,6 +15,8 @@ import SpotifyPlayer from 'react-spotify-player';
 import Dropdown2 from '../Dropdown2';
 import NavBar from '../navbar/NavBar';
 import itunes from '../itunes.jpg';
+import bandcamp from '../bandcamp.png';
+import spotifyi from '../spotify.png';
 import ReactPlayer from 'react-player';
 import SignUp from '../onepirate/SignUp';
 import Home from '../onepirate/Home';
@@ -27,6 +29,8 @@ import Typography from '../onepirate/modules/components/Typography';
 import bg from '../onepirate/modules/views/1977.png';
 import ProductHero from '../onepirate/modules/views/ProductHero';
 import clsx from 'clsx';
+import { useAppContext } from '../utils/Context';
+
  
 const Dante = () => {
   const spotify = Credentials();  
@@ -71,10 +75,10 @@ const Dante = () => {
 
   const [token, setToken] = useState('');  
   const [artist, setArtist] = useState('');
-  const [album, setAlbum] = useState({selectedAlbum: '', firstAlbum: '', firstName: '', listOfAlbumFromAPI: []});
+  const [album, setAlbum] = useState({selectedAlbum: '', selectedAlbumName: '', firstAlbum: '', firstName: '', listOfAlbumFromAPI: []});
   const [tracks, setTracks] = useState({selectedTrack: '', listOfTracksFromAPI: ['asda', 'asda']});
   const [trackDetail, setTrackDetail] = useState(null);
-  const [name, setName] = useState(''); 
+  const { name, setName } = useAppContext();
   const myArtists = '2aoFQUeHD1U7pL098lRsDU,2pAWfrd7WFF3XhVt9GooDL,77AKJs9SJqxHXbPgtJPKRa';
   // const [album, setAlbum] = useState({images: []});
  
@@ -105,16 +109,17 @@ const theme = 'black'; // or 'white'
         console.log(albumResponse);
         setAlbum({
           selectedAlbum: album.selectedAlbum,
+          selectedAlbumName: album.selectedAlbumName,
           // listOfAlbumFromAPI: albumResponse.data.albums.items
           firstAlbum: albumResponse.data.items[0].uri,
           firstName: albumResponse.data.items[0].name,
           listOfAlbumFromAPI: albumResponse.data.items
         })
       });
-    console.log(album.selectedAlbum);
+    console.log(album.selectedAlbumName);
     });
 
-  }, [Dante.value, album.selectedAlbum, artist.selectedArtist, album.firstAlbum, album.firstName, spotify.ClientId, spotify.ClientSecret]); 
+  }, [Dante.value, album.selectedAlbum, album.selectedAlbumName, artist.selectedArtist, album.firstAlbum, album.firstName, spotify.ClientId, spotify.ClientSecret]); 
 
   let mediaAlbum;
   if (album.selectedAlbum !== '') {
@@ -149,10 +154,24 @@ const theme = 'black'; // or 'white'
   //   console.log(val);
   // }
 
-  const albumChanged = val => {
+  const albumChanged = (val) => {
     console.log(val);
+    console.log(album.selectedAlbumName);
     setAlbum({
       selectedAlbum: val,
+      selectedAlbumName: album.selectedAlbumName,
+      firstAlbum: album.firstAlbum,
+      firstName: album.firstName,
+      listOfAlbumFromAPI: album.listOfAlbumFromAPI
+    });
+    console.log(album.listOfAlbumFromAPI[0].uri);
+  }
+
+  const albumNameChanged = (name) => {
+    console.log(name);
+    setAlbum({
+      selectedAlbum: album.selectedAlbum,
+      selectedAlbumName: name,
       firstAlbum: album.firstAlbum,
       firstName: album.firstName,
       listOfAlbumFromAPI: album.listOfAlbumFromAPI
@@ -232,29 +251,63 @@ const theme = 'black'; // or 'white'
       
 </div>
 <div className='flexbox'>
-      <img class='bg'  src={bg} alt='...'/>
-      <span className='description'> Here is a really asdfoih;n aisunfo iasodij oaijd aosidj asdoij dasoij asodija sojda OSJdnfl ;;OF N;WORQ3 N;OERWN ;OWER Nsick description.</span>
+      <img class='bg d-inline' src={bg} alt='...'/>
+      <span className='description d-inline'> Here is a really iiiiiiiiii iiiiiiiiiiiiii iiiiiiiii asdfoih;n aisunfo iasodij oaijd aosidj asdoij dasoij asodija sojda OSJdnfl ;;OF N;WORQ3 N;OERWN ;OWER Nsick description.</span>
       
       </div>
       <br/>
       
       
-      <div className='player w-50' align='left'>
+      {/* <div className='flexbox'> */}
+<div className='flexbox'>
+  {/* <flex-item> */}
+  <div className='player d-inline' align='left'>
           <SpotifyPlayer
               uri={mediaAlbum}
               size={size}
               view={view}
               theme={theme}
-            />
-          </div>
+      />
+      <div className='player3' id='header'>
+            <br/>
+            <br/>
+            <div className='albumHeader w-50'>
+                <h3 >{name.name}</h3>
+            </div>
+            <br/>
+            <div className='row'>
+            
+            <img className='column buy img-responsive' src={itunes} alt='...' />
+            <img className='column buy img-responsive' src={bandcamp} alt='...' />
+            <img className='column buy img-responsive' src={spotifyi} alt='...' />
+            </div>
+            </div>
+      </div>
+      <div target="#header">
+  <Dropdown2 className='player2 d-inline' align='right' options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} selectedName={album.selectedAlbumName} firstName={album.firstName} changed={albumChanged} />
+  </div>
+      
+      </div>
+      {/* </flex-item> */}
       
       
-      
+          {/* </div> */}
+          {/* <div className='player2 d-inline'  align='right'>
+          <div >
+                <h3 className='albumHeader w-50'>{album.selectedAlbum}</h3>
+                
+            </div>
+            
+            
+            </div> */}
+            </div>
+            {/* </div> */}
       
           {/* <Dropdown label="Artist :" options={artists.listOfArtistsFromAPI} selectedValue={artists.selectedArtist} changed={artistChanged} /> */}
-          <div align='right'>
-          <Dropdown2 options={album.listOfAlbumFromAPI} selectedValue={album.selectedAlbum} firstName={album.firstName} changed={albumChanged} />
-          </div>
+          {/* <div className='up' align='right'> */}
+          
+          {/* </div> */}
+          
           {/* <div className='w-50'>
           <SpotifyPlayer 
               uri={mediaAlbum}
@@ -264,13 +317,13 @@ const theme = 'black'; // or 'white'
             />
           </div> */}
           
-    </div>
+    
     <br/>
     <br/>
       
-    <div className='albumHeader'>
+    {/* <div className='albumHeader'>
                 <h3 >Latest From SoundCloud!</h3>
-            </div>
+            </div> */}
 
     {/* <SignUp /> */}
     {/* <Home /> */}

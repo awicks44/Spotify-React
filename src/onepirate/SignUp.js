@@ -56,7 +56,7 @@ function SignUp() {
             Sign Up
           </Typography>
           <Typography variant="body2" align="center">
-            <Link href="/premium-themes/onepirate/sign-in/" underline="always">
+            <Link href="/login/" underline="always">
               Already have an account?
             </Link>
           </Typography>
