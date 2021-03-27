@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="stickywrapper"
+  >
+    <div
+      class="nottransparent"
+    >
+      <div
+        class="navbartop"
+      >
+        <div
+          class="logocontainer"
+        >
+          <div
+            class="logo"
+          >
+            <a
+              href="/"
+            >
+              <img
+                alt="logo"
+                src="/sportsapp.png"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="cart"
+        >
+          <p>
+            Shopping Cart Placeholder
+          </p>
+        </div>
+        <div
+          class="login"
+        >
+          <div>
+            <div
+              class="useremail"
+            />
+            <div
+              class="container text-center"
+            >
+              <button
+                class="button btn"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="navbar navbar-expand-lg menu"
+      >
+        <ul
+          class="nav navbarnav"
+          data-testid="dropdown"
+        />
+      </nav>
+    </div>
+  </div>
+</DocumentFragment>
+`;

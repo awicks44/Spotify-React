@@ -1,0 +1,202 @@
+* { box-sizing: border-box;}
+
+.button {
+    background-color: #555555;
+    padding: 15px 32px;
+}
+
+.invisible {
+    visibility: hidden;
+  }
+
+.visible {
+    visibility: visible;
+  }
+
+.albumHeader {
+    background: red;
+    position: relative;
+    /* left: 50%; */
+    /* margin-top: -.5%; */
+    /* height: 20px; */
+    transform: translate(50%, 50%);
+    top: -330px;
+    vertical-align: top;
+    text-align: center;
+    word-wrap: break-word;
+    /* flex: 2; */
+}
+
+.buy {
+    /* width: 100px; */
+    min-width: 150px;
+    /* width: 10%; */
+    height: 10%;
+    margin-bottom: 2.5%;;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    position: relative;
+    /* left: 50%; */
+    /* margin-top: -.5%; */
+    /* height: 20px; */
+    /* transform: translate(-50%, -50%); */
+    top: -325px;
+    vertical-align: top;
+  }
+
+  .albumCover {
+    /* width: 25%; */
+    height: auto;
+  }
+
+  .albumContainer {
+    height: auto;
+    float: right;
+    display: block;
+  /* margin-left: auto; */
+  margin-right: auto;
+  
+  
+  }
+
+  .albums {
+    /* bottom: '500px'; */
+    /* float: center; */
+    
+    display: block;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: all;
+  }
+
+  .player {
+    width: 50%;
+    /* margin: auto; */
+    /* float: left; */
+    /* flex: 1; */
+    height: 20px;
+  }
+
+  .player2 {
+    /* padding-left: 50%; */
+    /* padding-bottom: -100px; */
+    /* float: right; */
+    position: relative;
+      text-align: center;
+      word-wrap: break-word;
+      /* vertical-align: text-top; */
+      color: white;
+      flex: 1;
+      left: 100%;
+      /* top: 300px; */
+      pointer-events: none;
+      /* margin-top: -1.5%; */
+      bottom: 150%;
+      height: 30px;
+  }
+
+  .player3 {
+    position: relative;
+    left: 100%;
+    top: -200%;
+    color: white;
+    pointer-events: none;
+  }
+
+  .description {
+    float: right;
+    position: relative;
+      text-align: center;
+      word-wrap: break-word;
+      vertical-align: middle;
+      color: white;
+      flex: 1;
+
+  }
+
+  .bg {
+    /* background-position: 0 0;  */
+    float: left;
+    /* width: 50%; */
+    flex: 1;
+    /* height: 50%; */
+    position: relative;
+    /* vertical-align:middle */
+    width: 50%;
+    height: 100%;
+    max-width: 100%;
+  /* margin: 0 auto; */
+  /* max-width: 9280vh; */
+  }
+  
+  
+  .flexbox {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .descriptionContact {
+    text-align: center;
+    color: aqua;
+  }
+  
+  * { box-sizing: border-box;}
+
+.up {
+  /* padding-bottom: 300px; */
+  top: 500px;
+}
+
+flex-box {
+  display: flex;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+flex-item {
+  flex: 1;
+  background: gray;
+  min-width: 300px;
+}
+/* flex-item:first-child {
+  background: red;
+} */
+
+.albumButton {
+  top: 2000px;
+}
+
+
+  @media (max-width: 400px) { 
+  .albumHeader {
+    width: 700px;
+    top: -340px;
+    background: transparent;
+    right: 30px;
+    /* font-size: 300px; */
+  }
+  h3 {
+    width: 150px;
+  }
+  .bg {
+    width: 100%;
+  }
+  /* .player {
+    width: 100%;
+  }
+  .player3 {
+    top: 0px;
+    display: none;
+    left: 0px;
+    top: 250px;
+  } */
+  }
+  
+  form {
+    margin: 0 auto;
+}

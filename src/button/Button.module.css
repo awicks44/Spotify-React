@@ -1,0 +1,17 @@
+.btn {
+    background-color: #BC4639;
+    color: white;
+    border: 1px solid black;
+    font-size: 18px;
+    border-width: 2px;
+    border-radius: 3px;
+}
+
+.btn-disabled {
+    color: black;
+    border: 1px solid #D4A59A;
+    font-size: 18px;
+    border-width: 2px;
+    border-radius: 3px;
+    background-color: #F3E0DC;
+}
